@@ -5,6 +5,23 @@
   --font-secondary: #79b8f3;
 }
 
+@font-face {
+  font-family: 'Roboto Slab';
+  src: local('Roboto Slab'), url('./fonts/roboto-slab-v16-latin-regular.woff2') format('woff2'), 
+       local('Roboto Slab'), url('./fonts/roboto-slab-v16-latin-regular.woff') format('woff');       
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu'), url('./fonts/ubuntu-v15-latin-regular.woff2') format('woff2'), 
+       local('Ubuntu'), url('./fonts/ubuntu-v15-latin-regular.woff') format('woff');       
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--primary-color);
 }
@@ -13,10 +30,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto Slab';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;  
 }

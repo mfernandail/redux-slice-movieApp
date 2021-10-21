@@ -14,19 +14,20 @@ export const AppRouter = () => {
   return (
     <Router>
       <Header />
-      
-      <Switch>
-        <Route
-          path="/"
-          component={Home}
-        />
-        <Route
-          path="/movie/:imdbid"
-          component={Detail}
-        />
-        <Route component={PageNotFound} />
-      </Switch>
-
+      <div className="container">      
+        <Switch>
+          <Route
+            path="/movie/:imdbid"
+            component={Detail}
+          />
+          <Route
+            path="/"
+            exact
+            component={Home}
+          />
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
       <Footer />
     </Router>
   )
