@@ -1,9 +1,12 @@
-import React from 'react'
-import './App.css'
+import React from 'react';
+
+import { AppRouter } from './routers/AppRouter';
 
 function App() {
   return (
-    <div className="app">App</div>
+    <div className="app">
+      <AppRouter />
+    </div>
   )
 }
 
