@@ -8,7 +8,7 @@ import { Header } from '../components/Header/Header';
 import { Home } from '../pages/Home/Home';
 import { Detail } from '../pages/Detail/Detail';
 import { Footer } from '../components/Footer/Footer';
-import { PageNotFound } from '../pages/PageNotFound/PageNotFound';
+import { PageNotFound } from '../pages/Error/Error404';
 
 export const AppRouter = () => {
   return (
