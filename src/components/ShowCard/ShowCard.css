@@ -1,5 +1,12 @@
 .card-item {
   background: var(--secondary-color);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.card-item:hover {
+  transform: scale(1.05);
+  transition: all .3s;
 }
 
 .card-top {
