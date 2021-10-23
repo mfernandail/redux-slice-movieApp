@@ -23,6 +23,7 @@
 .show-section__plot {
   line-height: 1.8rem;
   margin-top: 20px;
+  font-family: 'Ubuntu';
 }
 
 .show-section__info > div span:first-child{
@@ -31,10 +32,12 @@
   font-weight: 600;
   margin-right: 10px;
   padding: 10px 0;
+  font-family: 'Ubuntu';
 }
 
 .show-section__info > div span{
   color: var(--font-secondary);
+  font-family: 'Ubuntu';
 }
 
 .show-section__right img {

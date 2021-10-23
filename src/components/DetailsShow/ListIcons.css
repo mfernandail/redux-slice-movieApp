@@ -5,6 +5,7 @@
 .movie-section__desc,
 .movie-section__data {
   margin-left: 5px;
+  font-family: 'Ubuntu';
 }
 
 .movie-section__data {
