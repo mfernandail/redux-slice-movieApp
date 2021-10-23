@@ -1,0 +1,12 @@
+.movie-section__icon {
+  width: 15px;
+}
+
+.movie-section__desc,
+.movie-section__data {
+  margin-left: 5px;
+}
+
+.movie-section__data {
+  margin-right: 20px;
+}

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchShowDetailsAsync, getAllSelected } from '../../redux/movies/movieSlice';
+import { DetailsShow } from '../../components/DetailsShow/DetailsShow';
 
 export const Detail = () => {
   const dispatch = useDispatch();
@@ -10,15 +11,11 @@ export const Detail = () => {
 
   const data = useSelector(getAllSelected);
 
-  console.log(data)
-
-  // useEffect(() => {
-  //   dispatch(fetchShowDetailsAsync(imdbID));
-  // }, [imdbID]);
+  useEffect(() => {
+    dispatch(fetchShowDetailsAsync(imdbid));
+  }, [imdbid]);
 
   return (
-    <div>
-      <h1>Movie detail</h1>
-    </div>
+    <DetailsShow data={data} />
   )
 }
