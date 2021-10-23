@@ -29,8 +29,8 @@ const movieSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    addMovies: (state, action) => {
-      state.movies = action.payload;
+    removeSelectedShow: (state) => {
+      state.detailShow = {}
     }
   },
   extraReducers: {
@@ -56,5 +56,5 @@ export const getAllMovies = state => state.showsReducer.movies;
 export const getAllSeries = state => state.showsReducer.series;
 export const getAllSelected = state => state.showsReducer.detailShow;
 
-export const {addMovies} = movieSlice.actions;
+export const {removeSelectedShow} = movieSlice.actions;
 export default movieSlice.reducer;

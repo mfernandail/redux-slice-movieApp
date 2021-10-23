@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchShowDetailsAsync, getAllSelected } from '../../redux/movies/movieSlice';
+import { fetchShowDetailsAsync, getAllSelected, removeSelectedShow } from '../../redux/movies/movieSlice';
 import { DetailsShow } from '../../components/DetailsShow/DetailsShow';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 export const Detail = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,18 @@ export const Detail = () => {
 
   useEffect(() => {
     dispatch(fetchShowDetailsAsync(imdbid));
+    return () => {
+      dispatch(removeSelectedShow())
+    }
   }, [imdbid]);
 
   return (
-    <DetailsShow data={data} />
+    <>
+    {
+      Object.keys(data).length === 0
+        ? <Spinner />
+        : <DetailsShow data={data} />
+    }    
+    </>
   )
 }
