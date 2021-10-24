@@ -24,8 +24,9 @@ export const DetailsShow = ({data}) => {
   ]
   return (
     <div className="show-section">
+      <h2 className="show-section__title">{data.Title}</h2>
+
       <div className="show-section__left">
-        <h2 className="show-section__title">{data.Title}</h2>
         <div className="show-section__rating">
           {
             icons.map(icon => (
@@ -38,17 +39,17 @@ export const DetailsShow = ({data}) => {
             ))
           }
         </div>
-        <div className="show-section__plot">{data.Plot}</div>
-          <div className="show-section__info">
-          {
-            dataShow.map(show => (
-              <DataShow
-                key={show.desc}
-                desc={show.desc}
-                info={show.info}              
-              />
-            ))
-          }
+        <div className="show-section__plot">{data.Plot}+++</div>
+        <div className="show-section__info">
+        {
+          dataShow.map(show => (
+            <DataShow
+              key={show.desc}
+              desc={show.desc}
+              info={show.info}              
+            />
+          ))
+        }
         </div>
       </div>
 

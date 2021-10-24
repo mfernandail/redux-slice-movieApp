@@ -1,8 +1,13 @@
 :root {
-  --primary-color: #0f171e;
+  --primary-color: #261C2C;
+  --secondary-color: #3E2C41;
+  --font-primary: #ffffff;
+  --font-secondary: #3C8DAD;
+
+  /* --primary-color: #0f171e;
   --secondary-color: #1a242f;
   --font-primary: #ffffff;
-  --font-secondary: #79b8f3;
+  --font-secondary: #79b8f3;  */
 }
 
 @font-face {

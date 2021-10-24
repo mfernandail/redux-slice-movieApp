@@ -2,9 +2,9 @@ import React from 'react';
 
 export const DataShow = ({desc, info}) => {
   return (
-    <div>
-      <span>{desc}:</span>
-      <span>{info}</span>
+    <div className="show-section__details">
+      <span className="show-section__info-desc">{desc}:</span>
+      <span className="show-section__info-info">{info}</span>
     </div>
   )
 }

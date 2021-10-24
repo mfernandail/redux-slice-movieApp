@@ -8,18 +8,23 @@ export const ShowListening = () => {
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
 
+  const shows = [{title: 'movies', typeShow: movies}, {title: 'Series', typeShow: series}];
+
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
-
-        <h2>Movies</h2>
-        <ListOfShow show={movies} /> 
-
-        <h2>Series</h2>
-        <ListOfShow show={series} />
-
-      </div>
-      
+        {
+          shows.map(showL => {
+            return (
+              <div key={showL.title}>
+                <h2 className="movie-list__title">{showL.title}</h2>
+                <div className="movie-list__title-bottom"></div>
+                <ListOfShow show={showL.typeShow} /> 
+              </div>
+            )
+          })
+        }
+      </div>      
     </div>
   )
 }
