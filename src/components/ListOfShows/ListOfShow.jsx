@@ -13,7 +13,7 @@ export const ListOfShow = ({show}) => {
             />
           ))
         : <div className="movies-error">
-            <h3>{show.error}</h3>
+            <h3>{show.Error}</h3>
           </div>
     }
   </div>

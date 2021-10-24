@@ -39,7 +39,7 @@ export const DetailsShow = ({data}) => {
             ))
           }
         </div>
-        <div className="show-section__plot">{data.Plot}+++</div>
+        <div className="show-section__plot">{data.Plot}</div>
         <div className="show-section__info">
         {
           dataShow.map(show => (

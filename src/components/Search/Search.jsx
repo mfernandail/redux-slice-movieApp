@@ -1,29 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
+import { fetchSearchMovieAsync, fetchSearchSerieAsync, removeSelectedSerie, removeSelectedMovie, getAllMovies } from '../../redux/movies/movieSlice';
+import { ShowListening } from '../../components/ShowListening/ShowListening';
+
 import './Search.css';
+import { useSelector } from 'react-redux';
+import { Spinner } from '../Spinner/Spinner';
 
 export const Search = () => {
-  const [input, setInput] = useState('');
+  const {searchShow} = useParams();
+  const dispatch = useDispatch();
 
-  const handleInputChange = e => {
-    setInput(e.target.value);
-  }
+  const data = useSelector(getAllMovies);
 
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    
-  }
+  console.log(data)
+
+  useEffect(() => {
+    dispatch(fetchSearchMovieAsync(searchShow));
+    dispatch(fetchSearchSerieAsync(searchShow));
+
+    return () => {
+      dispatch(removeSelectedMovie());
+      dispatch(removeSelectedSerie());
+    }
+  }, [searchShow]);
+  
   return (
-    <div className="search">
-      <form className="search__form" onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          className="search__input"
-          placeholder="Search..."
-        />
-        <span className="search__focus-border"></span>
-      </form>
-    </div>
+    <>
+    {
+      Object.keys(data).length === 0
+      ? <Spinner />
+      : <ShowListening />
+    }
+    </>    
   )
 }

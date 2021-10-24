@@ -9,6 +9,7 @@ import { Home } from '../pages/Home/Home';
 import { Detail } from '../pages/Detail/Detail';
 import { Footer } from '../components/Footer/Footer';
 import { PageNotFound } from '../pages/Error/Error404';
+import { Search } from '../components/Search/Search';
 
 export const AppRouter = () => {
   return (
@@ -20,6 +21,11 @@ export const AppRouter = () => {
             path="/movie/:imdbid"
             component={Detail}
           />
+          <Route
+            path="/search/:searchShow"
+            component={Search}
+            exact
+          />          
           <Route
             path="/"
             exact

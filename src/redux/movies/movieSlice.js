@@ -3,7 +3,7 @@ import movieApi from '../../api/movieApi';
 import { API_KEY } from '../../api/MovieApiKey';
 
 export const fetchMoviesAsync = createAsyncThunk('movies/fetchMoviesAsync', async() => {
-  const movieSearch = 'Harry';
+  const movieSearch = 'Avengers';
   const response = await movieApi.get(`?apikey=${API_KEY}&s=${movieSearch}&type=movie`);  
   return response.data;
 });
@@ -19,6 +19,16 @@ export const fetchShowDetailsAsync = createAsyncThunk('movies/fetchShowDetailsAs
   return response.data;
 });
 
+export const fetchSearchMovieAsync = createAsyncThunk('movies/fetchSearchShowAsync', async(movie) => {
+  const response = await movieApi.get(`?apikey=${API_KEY}&s=${movie}&type=movie`);
+  return response.data;
+});
+
+export const fetchSearchSerieAsync = createAsyncThunk('movies/fetchSearchSeriAsync', async(serie) => {
+  const response = await movieApi.get(`?apikey=${API_KEY}&s=${serie}&type=series`);
+  return response.data;
+});
+
 const initialState = {
   movies: {},
   series: {},
@@ -31,6 +41,12 @@ const movieSlice = createSlice({
   reducers: {
     removeSelectedShow: (state) => {
       state.detailShow = {}
+    },
+    removeSelectedMovie: (state) => {
+      state.movies = {}
+    },
+    removeSelectedSerie: (state) => {
+      state.series = {}
     }
   },
   extraReducers: {
@@ -46,9 +62,13 @@ const movieSlice = createSlice({
     [fetchShowDetailsAsync.fulfilled]: (state, action) => {
       // return detailShow = state.find(show => show.imdbID === action.payload)
       return {...state, detailShow: action.payload}
+    },
+    [fetchSearchMovieAsync.fulfilled]: (state, action) => {
+      return {...state, movies: action.payload}
+    },
+    [fetchSearchSerieAsync.fulfilled]: (state, action) => {
+      return {...state, series: action.payload}
     }
-
-
   }
 });
 
@@ -56,5 +76,5 @@ export const getAllMovies = state => state.showsReducer.movies;
 export const getAllSeries = state => state.showsReducer.series;
 export const getAllSelected = state => state.showsReducer.detailShow;
 
-export const {removeSelectedShow} = movieSlice.actions;
+export const {removeSelectedShow, removeSelectedMovie, removeSelectedSerie} = movieSlice.actions;
 export default movieSlice.reducer;
