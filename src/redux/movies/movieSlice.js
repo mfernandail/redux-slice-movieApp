@@ -1,31 +1,31 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import movieApi from '../../api/movieApi';
-import { API_KEY } from '../../api/MovieApiKey';
+// import { API_KEY } from '../../api/MovieApiKey';
 
 export const fetchMoviesAsync = createAsyncThunk('movies/fetchMoviesAsync', async() => {
   const movieSearch = 'Avengers';
-  const response = await movieApi.get(`?apikey=${API_KEY}&s=${movieSearch}&type=movie`);  
+  const response = await movieApi.get(`?apikey=bfca5c2d&s=${movieSearch}&type=movie`);  
   return response.data;
 });
 
 export const fetchSeriesAsync = createAsyncThunk('movies/fetchSeriesAsync', async() => {
   const serieSearch = 'Friends';
-  const response = await movieApi.get(`?apikey=${API_KEY}&s=${serieSearch}&type=series`);  
+  const response = await movieApi.get(`?apikey=bfca5c2d&s=${serieSearch}&type=series`);  
   return response.data;
 });
 
 export const fetchShowDetailsAsync = createAsyncThunk('movies/fetchShowDetailsAsync', async(id) => {
-  const response = await movieApi.get(`?apikey=${API_KEY}&i=${id}&Plot=full`);  
+  const response = await movieApi.get(`?apikey=bfca5c2d&i=${id}&Plot=full`);  
   return response.data;
 });
 
 export const fetchSearchMovieAsync = createAsyncThunk('movies/fetchSearchShowAsync', async(movie) => {
-  const response = await movieApi.get(`?apikey=${API_KEY}&s=${movie}&type=movie`);
+  const response = await movieApi.get(`?apikey=bfca5c2d&s=${movie}&type=movie`);
   return response.data;
 });
 
 export const fetchSearchSerieAsync = createAsyncThunk('movies/fetchSearchSeriAsync', async(serie) => {
-  const response = await movieApi.get(`?apikey=${API_KEY}&s=${serie}&type=series`);
+  const response = await movieApi.get(`?apikey=bfca5c2d&s=${serie}&type=series`);
   return response.data;
 });
 
