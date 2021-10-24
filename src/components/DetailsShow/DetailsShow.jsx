@@ -6,9 +6,11 @@ import like from '../../images/icons/thumbs-up.svg';
 import calendar from '../../images/icons/calendar.svg';
 import clock from '../../images/icons/clock.svg';
 import './DetailsShow.css';
+import { Spinner } from '../Spinner/Spinner';
 
 export const DetailsShow = ({data}) => {
-  console.log(data)
+
+  console.log(data.Poster)
   const icons = [
     { desc: 'IMDB Rating', icons: star, info: data.imdbRating },
     { desc: 'IMDB Votes', icons: like, info: data.imdbVotes },
@@ -53,9 +55,12 @@ export const DetailsShow = ({data}) => {
         </div>
       </div>
 
+
       <div className="show-section__right">
         <img src={data.Poster} alt={data.Title} />
       </div>
+
+
     </div>
   )
 }

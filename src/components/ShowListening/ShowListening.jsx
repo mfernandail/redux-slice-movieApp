@@ -8,7 +8,7 @@ export const ShowListening = () => {
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
 
-  const shows = [{title: 'movies', typeShow: movies}, {title: 'Series', typeShow: series}];
+  const shows = [{title: 'Movies', typeShow: movies}, {title: 'Series', typeShow: series}];
 
   return (
     <div className="movie-wrapper">
@@ -18,7 +18,6 @@ export const ShowListening = () => {
             return (
               <div key={showL.title}>
                 <h2 className="movie-list__title">{showL.title}</h2>
-                <div className="movie-list__title-bottom"></div>
                 <ListOfShow show={showL.typeShow} /> 
               </div>
             )

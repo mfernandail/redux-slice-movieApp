@@ -28,7 +28,8 @@
 }
 
 body {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
+  background-image: url('./images/Sprinkle.svg');
 }
 
 * {

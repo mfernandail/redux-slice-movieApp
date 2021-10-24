@@ -1,6 +1,6 @@
 .footer {
   align-items: center;
-  background-color: var(--secondary-color);
+  background: linear-gradient(180deg, var(--secondary-color), var(--primary-color));
   color: var(--font-primary);
   display: flex;
   height: 72px;

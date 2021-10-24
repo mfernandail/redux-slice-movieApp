@@ -2,7 +2,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
 import { Home } from '../pages/Home/Home';
@@ -31,7 +32,7 @@ export const AppRouter = () => {
             exact
             component={Home}
           />
-          <Route component={PageNotFound} />
+          <Redirect to="/" />
         </Switch>
       </div>
       <Footer />
