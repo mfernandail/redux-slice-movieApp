@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 import './InputSearch.css';
 
 export const InputSearch = () => {
   const [input, setInput] = useState('');
-
+  
   const history = useHistory();
 
   const handleInputChange = e => {

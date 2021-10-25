@@ -2,30 +2,20 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import movieApi from '../../api/movieApi';
 // import { API_KEY } from '../../api/MovieApiKey';
 
-export const fetchMoviesAsync = createAsyncThunk('movies/fetchMoviesAsync', async() => {
-  const movieSearch = 'Avengers';
+export const fetchMoviesAsync = createAsyncThunk('movies/fetchMoviesAsync', async(show) => {
+  const movieSearch = show || 'Avengers';
   const response = await movieApi.get(`?apikey=bfca5c2d&s=${movieSearch}&type=movie`);  
   return response.data;
 });
 
-export const fetchSeriesAsync = createAsyncThunk('movies/fetchSeriesAsync', async() => {
-  const serieSearch = 'Friends';
+export const fetchSeriesAsync = createAsyncThunk('movies/fetchSeriesAsync', async(show) => {
+  const serieSearch = show || 'Friends';
   const response = await movieApi.get(`?apikey=bfca5c2d&s=${serieSearch}&type=series`);  
   return response.data;
 });
 
 export const fetchShowDetailsAsync = createAsyncThunk('movies/fetchShowDetailsAsync', async(id) => {
   const response = await movieApi.get(`?apikey=bfca5c2d&i=${id}&Plot=full`);  
-  return response.data;
-});
-
-export const fetchSearchMovieAsync = createAsyncThunk('movies/fetchSearchShowAsync', async(movie) => {
-  const response = await movieApi.get(`?apikey=bfca5c2d&s=${movie}&type=movie`);
-  return response.data;
-});
-
-export const fetchSearchSerieAsync = createAsyncThunk('movies/fetchSearchSeriAsync', async(serie) => {
-  const response = await movieApi.get(`?apikey=bfca5c2d&s=${serie}&type=series`);
   return response.data;
 });
 
@@ -50,25 +40,18 @@ const movieSlice = createSlice({
     }
   },
   extraReducers: {
-    [fetchMoviesAsync.pending]: () => (console.log('Pending')),
+    // [fetchMoviesAsync.pending]: () => (console.log('Pending')),
     [fetchMoviesAsync.fulfilled]: (state, action) => {
       console.log('Seccess')
       return {...state, movies: action.payload}
     },
-    [fetchMoviesAsync.rejected]: () => (console.log('Rejected!')),
+    // [fetchMoviesAsync.rejected]: () => (console.log('Rejected!')),
     [fetchSeriesAsync.fulfilled]: (state, action) => {
       return {...state, series: action.payload}
     },
     [fetchShowDetailsAsync.fulfilled]: (state, action) => {
-      // return detailShow = state.find(show => show.imdbID === action.payload)
       return {...state, detailShow: action.payload}
     },
-    [fetchSearchMovieAsync.fulfilled]: (state, action) => {
-      return {...state, movies: action.payload}
-    },
-    [fetchSearchSerieAsync.fulfilled]: (state, action) => {
-      return {...state, series: action.payload}
-    }
   }
 });
 

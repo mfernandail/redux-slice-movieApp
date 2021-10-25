@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { getAllMovies, getAllSeries } from '../../redux/movies/movieSlice';
 import { ListOfShow } from '../ListOfShows/ListOfShow';
 import './ShowListening.css';
@@ -8,7 +9,14 @@ export const ShowListening = () => {
   const movies = useSelector(getAllMovies);
   const series = useSelector(getAllSeries);
 
-  const shows = [{title: 'Movies', typeShow: movies}, {title: 'Series', typeShow: series}];
+  const paramsURL = useParams();
+  let showUrl = '';
+
+  if(paramsURL.searchShow){
+    showUrl = paramsURL.searchShow;
+  }
+
+  const shows = [{title: `Movies ${showUrl}`, typeShow: movies}, {title: `Series ${showUrl}`, typeShow: series}];
 
   return (
     <div className="movie-wrapper">
