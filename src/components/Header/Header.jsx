@@ -7,9 +7,6 @@ export const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="header-logo">Movie App</Link>      
-      <div className="header-userImg">
-        <img src={user} alt="user image" />
-      </div>
     </div>
   )
 }
