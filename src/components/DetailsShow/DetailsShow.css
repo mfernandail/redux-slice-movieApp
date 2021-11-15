@@ -1,19 +1,19 @@
 .show-section {
   color: var(--font-primary);
   display: flex;
+  flex-wrap: wrap;
   font-weight: 400;
   justify-content: space-evenly;
-  padding: 40px 0;
 
-  flex-wrap: wrap;
+  padding: 40px 0;
 }
 
 .show-section__left {
-  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
+  width: 60%;
 }
 
 .show-section__title {
@@ -34,21 +34,21 @@
 .show-section__plot {
   line-height: 1.5rem;
   margin-top: 20px;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
 }
 
-.show-section__info > div span:first-child{
+.show-section__info > div span:first-child {
   color: var(--font-primary);
   display: inline-block;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   font-weight: 600;
   margin-right: 10px;
   margin-top: 10px;
 }
 
-.show-section__info > div span{
+.show-section__info > div span {
   color: var(--font-secondary);
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
 }
 
 .show-section__right img {
@@ -65,11 +65,11 @@
   .show-section__plot {
     line-height: 1.8rem;
   }
-  
+
   .show-section__info {
     margin-top: 20px;
   }
-  
+
   .show-section__right img {
     margin-bottom: 40px;
     /* margin-left: 0; */
@@ -84,9 +84,7 @@
     order: 1;
   }
 
-  
   .show-section__left {
     order: 2;
   }
-  
 }
