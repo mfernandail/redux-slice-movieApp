@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { getAllMovies, getAllSeries } from '../../redux/movies/movieSlice';
+import { getAllMovies, getAllSeries } from '../../stateContext/movies/movieSlice';
 import { ListOfShow } from '../ListOfShows/ListOfShow';
 import './ShowListening.css';
 
