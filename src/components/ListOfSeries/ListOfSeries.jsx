@@ -1,7 +1,6 @@
-import React from 'react';
 import { ShowCard } from '../ShowCard/ShowCard';
 
-export const ListOfShow = ({show}) => {
+const ListOfSeries = () => {
   return (
     <div className="movie-container">
     {
@@ -19,3 +18,5 @@ export const ListOfShow = ({show}) => {
   </div>
   )
 }
+
+export default ListOfSeries;
