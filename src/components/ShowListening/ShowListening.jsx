@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { useTitle } from '../../hooks/useSEO';
 import { getAllMovies, getAllSeries } from '../../stateContext/movies/movieSlice';
 import { ListOfShow } from '../ListOfShows/ListOfShow';
 import './ShowListening.css';
@@ -10,11 +11,12 @@ export const ShowListening = () => {
   const series = useSelector(getAllSeries);
 
   const paramsURL = useParams();
-  let showUrl = '';
+  const showUrl = paramsURL.searchShow ? paramsURL.searchShow : 'Home';
+  const description = `${showUrl} details`;
 
-  if(paramsURL.searchShow){
-    showUrl = paramsURL.searchShow;
-  }
+  console.log(description)
+  
+  useTitle({title: showUrl, description});
 
   const shows = [{title: `Movies ${showUrl}`, typeShow: movies}, {title: `Series ${showUrl}`, typeShow: series}];
 
