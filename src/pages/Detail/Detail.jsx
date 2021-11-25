@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { fetchShowDetailsAsync, getAllSelected, removeSelectedShow } from '../../stateContext/movies/movieSlice';
 import { DetailsShow } from '../../components/DetailsShow/DetailsShow';
 import { Spinner } from '../../components/Spinner/Spinner';
-import { useTitle } from '../../hooks/useSEO';
+// import { useTitle } from '../../hooks/useSEO';
 
 export const Detail = () => {
   const dispatch = useDispatch();
@@ -13,11 +13,11 @@ export const Detail = () => {
 
   const data = useSelector(getAllSelected);
   
-  const title = data ? data.Title : '';
-  const description = `${title} details`;
-  console.log(description)
+  // const title = data ? data.Title : '';
+  // const description = `${title} details`;
+  // console.log(description)
 
-  useTitle({title, description})
+  // useTitle({title, description})
 
   useEffect(() => {
     dispatch(fetchShowDetailsAsync(imdbid));
@@ -27,7 +27,7 @@ export const Detail = () => {
   }, [imdbid]);
 
   return (
-    <>
+    <>      
     {
       Object.keys(data).length === 0
         ? <Spinner />

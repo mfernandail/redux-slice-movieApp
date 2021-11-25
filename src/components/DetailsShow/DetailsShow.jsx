@@ -6,8 +6,14 @@ import like from '../../images/icons/thumbs-up.svg';
 import calendar from '../../images/icons/calendar.svg';
 import clock from '../../images/icons/clock.svg';
 import './DetailsShow.css';
+import { Helmet } from 'react-helmet';
 
 export const DetailsShow = ({data}) => {
+  const title = data ? data.Title : '';
+  const type = data ? data.Type : 'movie';
+
+  console.log(data)
+
   const icons = [
     { desc: 'IMDB Rating', icons: star, info: data.imdbRating },
     { desc: 'IMDB Votes', icons: like, info: data.imdbVotes },
@@ -22,40 +28,51 @@ export const DetailsShow = ({data}) => {
     { desc: 'Awards', info: data.Awards },
   ]
   return (
-    <div className="show-section">
-      <h2 className="show-section__title">{data.Title}</h2>
+    <>
+      <Helmet>
+        <title>{`${title} | Details`}</title>
+        <meta 
+          name="description" 
+          content={type === 'movie' ? `${title} Movie Details ` : `${title} Serie Details}`}
+        />
+      </Helmet>
 
-      <div className="show-section__left">
-        <div className="show-section__rating">
+      <div className="show-section">
+        <h2 className="show-section__title">{data.Title}</h2>
+
+        <div className="show-section__left">
+          <div className="show-section__rating">
+            {
+              icons.map(icon => (
+                <ListIcons
+                  key={icon.desc}
+                  icon={icon.icons}
+                  data={icon.info}
+                  description={icon.desc}
+                />
+              ))
+            }
+          </div>
+          <div className="show-section__plot">{data.Plot}</div>
+          <div className="show-section__info">
           {
-            icons.map(icon => (
-              <ListIcons
-                key={icon.desc}
-                icon={icon.icons}
-                data={icon.info}
-                description={icon.desc}
+            dataShow.map(show => (
+              <DataShow
+                key={show.desc}
+                desc={show.desc}
+                info={show.info}              
               />
             ))
           }
+          </div>
         </div>
-        <div className="show-section__plot">{data.Plot}</div>
-        <div className="show-section__info">
-        {
-          dataShow.map(show => (
-            <DataShow
-              key={show.desc}
-              desc={show.desc}
-              info={show.info}              
-            />
-          ))
-        }
+
+        <div className="show-section__right">
+          <img src={data.Poster} alt={data.Title} />
         </div>
+
       </div>
 
-      <div className="show-section__right">
-        <img src={data.Poster} alt={data.Title} />
-      </div>
-
-    </div>
+    </>
   )
 }
