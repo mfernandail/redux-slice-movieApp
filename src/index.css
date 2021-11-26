@@ -3,11 +3,16 @@
   --secondary-color: #3E2C41;
   --font-primary: #ffffff;
   --font-secondary: #3C8DAD;
+}
 
-  /* --primary-color: #0f171e;
-  --secondary-color: #1a242f;
-  --font-primary: #ffffff;
-  --font-secondary: #79b8f3;  */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 @font-face {

@@ -10,8 +10,6 @@ export const Search = () => {
   const {searchShow} = useParams();
   const dispatch = useDispatch();
 
-  // const data = useSelector(getAllMovies);
-
   useEffect(() => {
     dispatch(fetchMoviesAsync(searchShow));
   }, [searchShow]);
