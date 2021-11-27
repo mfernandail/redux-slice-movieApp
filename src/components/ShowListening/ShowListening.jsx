@@ -17,10 +17,10 @@ export const ShowListening = () => {
       </Helmet>
       <div className="movie-wrapper">
         <div className="movie-list">
-          <h2 className="movie-list__title">Movies</h2>
+          <h2 className="movie-list__title">Movies {showUrl !== 'Home' ? showUrl : '' }</h2>
           <ListShowsCards show='movies' /> 
 
-          <h2 className="movie-list__title">Series</h2>
+          <h2 className="movie-list__title">Series {showUrl !== 'Home' ? showUrl : '' }</h2>
           <LazyTranding /> 
           
         </div>   

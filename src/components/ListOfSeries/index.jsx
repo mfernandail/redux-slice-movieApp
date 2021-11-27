@@ -6,7 +6,7 @@ const ListShowsCards = React.lazy(() => import('../ListShowCards'));
 
 export const LazyTranding = () => {
   const {nearScreen, elementRef} = useNearScreen();
-  console.log(nearScreen)
+  // console.log(nearScreen)
   return (
     <div ref={elementRef}>
       <Suspense fallback={<Spinner />}>

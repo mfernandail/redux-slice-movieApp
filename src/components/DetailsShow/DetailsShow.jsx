@@ -12,8 +12,6 @@ export const DetailsShow = ({data}) => {
   const title = data ? data.Title : '';
   const type = data ? data.Type : 'movie';
 
-  console.log(data)
-
   const icons = [
     { desc: 'IMDB Rating', icons: star, info: data.imdbRating },
     { desc: 'IMDB Votes', icons: like, info: data.imdbVotes },

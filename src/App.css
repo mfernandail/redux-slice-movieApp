@@ -1,6 +1,11 @@
 .container {
   margin: 0px 40px;
   overflow: hidden;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-around;
 }
 
 @media (max-width: 534px) {
